@@ -6,7 +6,9 @@ class QuestionsScreen extends StatefulWidget {
   const QuestionsScreen({super.key});
 
   @override
-  State<QuestionsScreen> createState() => _QuestionsScreenState();
+  State<QuestionsScreen> createState() {
+    return _QuestionsScreenState();
+  }
 }
 
 class _QuestionsScreenState extends State<QuestionsScreen> {
@@ -14,12 +16,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
 
   answerQuestion() {
     setState(() {
-      if (currentQuestionIndex < questions.length - 1) {
-        currentQuestionIndex += 1;
-        debugPrint("Current Question Index: $currentQuestionIndex");
-      } else {
-        debugPrint("Quiz Finished!");
-      }
+      currentQuestionIndex++;
     });
   }
 
@@ -43,8 +40,11 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
             const SizedBox(
               height: 30,
             ),
-            ...currentQuestion.getShuffledAnswers().map((item) {
-              return AnswerButton(answerText: item, onTap: answerQuestion);
+            ...currentQuestion.getShuffledAnswers().map((answer) {
+              return AnswerButton(
+                answerText: answer,
+                onTap: answerQuestion,
+              );
             })
           ],
         ),
