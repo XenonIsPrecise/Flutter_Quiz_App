@@ -22,7 +22,7 @@ class StartScreen extends StatelessWidget {
         const Text(
           'Learning flutter the fun way',
           style: TextStyle(
-            fontSize: 20,
+            fontSize: 30,
             color: Colors.white,
           ),
         ),
